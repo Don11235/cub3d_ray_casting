@@ -47,6 +47,9 @@ typedef struct s_config {
 /*Parse functions*/
 bool ft_valid_file(char *file);
 int ft_open_file(char *path);
+void ft_parse_file(int fd, t_config *config);
 t_config *ft_init_config(void);
 
+/*map functions*/
+char **ft_malloc_map_grid(int height);
 #endif

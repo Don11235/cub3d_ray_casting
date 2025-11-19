@@ -1,33 +1,4 @@
 #include "./cub.h"
-#include "libft/libft.h"
-#include <stdbool.h>
-#include <stdio.h>
-#include <stdlib.h>
-#include <unistd.h>
-
-bool ft_valid_file(char *file) {
-  size_t len;
-  char *extention;
-
-  len = ft_strlen(file);
-  if (len < 5)
-    return (false);
-  extention = ft_strchr(file, '.');
-  if (ft_strcmp(".cub", extention) != 0)
-    return (false);
-  return (true);
-}
-
-int ft_open_file(char *str) {
-  int fd;
-
-  fd = open(str, O_RDONLY);
-  if (fd < 0) {
-    perror("file not found\n");
-    return (-1);
-  }
-  return (fd);
-}
 
 int main(int argc, char **argv) {
   t_config *config;
@@ -48,6 +19,6 @@ int main(int argc, char **argv) {
     perror("malloc");
     return (EXIT_FAILURE);
   }
-  ft_parse_file(int fd, t_config *config);
+  ft_parse_file(fd, config);
   return (0);
 }

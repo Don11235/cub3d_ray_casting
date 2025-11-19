@@ -1,4 +1,6 @@
 #include "./cub.h"
+#include "libft/libft.h"
+#include <stdio.h>
 
 bool ft_valid_file(char *file) {
   size_t len;
@@ -46,4 +48,17 @@ t_config *ft_init_config(void) {
   config->player.y = -1;
   config->player.dire = '\0';
   return config;
+}
+
+void ft_parse_file(int fd, t_config *config) {
+  char *line;
+  char trimed *config->map.grid = ft_malloc_map_grid(100);
+  line = ft_get_next_line(fd);
+  while (line) {
+    trimed = ft_strtrim(line, " \t\n");
+    free(line);
+    if (trimed && trimed[0] != '\0') {
+      if (ft_is_texture(trimed))
+    }
+  }
 }
