@@ -11,9 +11,24 @@
 #include <string.h>
 #include <unistd.h>
 
-typedef struct s_textuers {
-  char *path;
-} t_textuers;
+typedef struct s_texture {
+  char *north;
+  char *south;
+  char *west;
+  char *east;
+} t_texture;
+
+typedef struct s_color {
+  int r;
+  int g;
+  int b;
+} t_color;
+
+typedef struct s_player {
+  int x;
+  int y;
+  char dire;
+} t_player;
 
 typedef struct s_map {
   char **grid;
@@ -22,13 +37,16 @@ typedef struct s_map {
 } t_map;
 
 typedef struct s_config {
-  t_textuers text[4];
+  t_texture textures;
+  t_color floor;
+  t_color ceil;
   t_map map;
-  int f_color;
-  int cel_color;
-  int player_x;
-  int player_y;
-  int player_dir;
+  t_player player;
 } t_config;
+
+/*Parse functions*/
+bool ft_valid_file(char *file);
+int ft_open_file(char *path);
+t_config *ft_init_config(void);
 
 #endif
