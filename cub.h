@@ -3,6 +3,7 @@
 
 #include "./libft/libft.h"
 #include "./mlx/mlx.h"
+#include <complex.h>
 #include <fcntl.h>
 #include <math.h>
 #include <stdbool.h>
@@ -54,6 +55,8 @@ t_config *ft_init_config(void);
 
 /*map functions*/
 char **ft_malloc_map_grid(int height);
+bool ft_is_map_line(char *line);
+void ft_fill_map(char **grid, char *line, int row);
 
 /*textures*/
 bool ft_is_texture_line(char *line);
@@ -61,10 +64,13 @@ void ft_fill_textu_path(t_config *config, char *line);
 
 /*utils*/
 char *ft_skip_space(char *line);
+void ft_free_config(t_config *config);
+void ft_free_split(char **s);
+void ft_free_error(char *msg, t_config *config);
 
 /*color*/
 bool ft_is_color_line(char *line);
+void ft_fill_color_path(t_config *config, char *line);
+int *ft_handel_rgb(char *s);
 
-/*free */
-void ft_free_config(t_config *config);
 #endif

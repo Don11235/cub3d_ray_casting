@@ -1,5 +1,5 @@
 SRCS= main.c parse_map.c parse_conf.c parse_utils.c\
-	  parse_texture.c 
+	  parse_texture.c parse_color.c 
 
 NAME=cub
 

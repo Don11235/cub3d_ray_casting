@@ -58,25 +58,16 @@ void ft_fill_textu_path(t_config *config, char *line) {
 
   path = ft_skip_space(line);
   new_path = ft_extract_path(path);
-  printf("old path:%s\n", path);
-  printf("new path:%s\n", new_path);
-  if (!new_path || !ft_is_valid_path(new_path)) {
-    ft_putstr_fd("Error: Invalid texture file path.\n", 2);
-    ft_free_config(config);
-    exit(1);
-  }
-  if (ft_strncmp(path, "NO ", 3) == 0) {
+  if (!new_path || !ft_is_valid_path(new_path))
+    ft_free_error("fle path", config);
+  if (ft_strncmp(path, "NO ", 3) == 0)
     config->textures.north = new_path;
-    printf("%s\n", config->textures.north);
-  } else if (ft_strncmp(path, "WE ", 3) == 0)
+  else if (ft_strncmp(path, "WE ", 3) == 0)
     config->textures.west = new_path;
   else if (ft_strncmp(path, "EA ", 3) == 0)
     config->textures.east = new_path;
   else if (ft_strncmp(path, "SO ", 3) == 0)
     config->textures.south = new_path;
-  else {
-    ft_putstr_fd("Error: Unknown texture identifier.\n", 2);
-    ft_free_config(config);
-    exit(1);
-  };
+  else
+    ft_free_error("texture", config);
 }

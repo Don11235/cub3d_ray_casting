@@ -1,4 +1,6 @@
 #include "./cub.h"
+#include <cstddef>
+#include <cstdio>
 
 bool ft_valid_file(char *file) {
   size_t len;
@@ -50,21 +52,33 @@ t_config *ft_init_config(void) {
 
 void ft_parse_file(int fd, t_config *config) {
   char *line;
-  char *trimed;
+  char *new_line;
+  int len;
+  int row;
 
+  row = 0;
   config->map.grid = ft_malloc_map_grid(100);
   line = ft_get_next_line(fd);
   while (line) {
-    trimed = ft_strtrim(line, " \t\n");
+    new_line = ft_strtrim(line, " \t\n");
     free(line);
-    if (trimed && trimed[0] != '\0') {
-      if (ft_is_texture_line(trimed))
-        ft_fill_textu_path(config, trimed);
-      else if (ft_is_color_line(trimed))
-        ft_fill_color_path(config, trimed);
+    if (new_line && new_line[0] != '\0') {
+      if (ft_is_texture_line(new_line))
+        ft_fill_textu_path(config, new_line);
+      else if (ft_is_color_line(new_line))
+        ft_fill_color_path(config, new_line);
+      else if (ft_is_map_line(new_line)) {
+        len = ft_strlen(new_line);
+        if (len > config->map.width)
+          config->map.width = len;
+        ft_fill_map(config->map.grid, new_line, row++);
+        free(new_line);
+        new_line = NULL;
+      }
     }
-    if (trimed)
-      free(trimed);
+    if (new_line)
+      free(new_line);
     line = ft_get_next_line(fd);
   }
+  config->map.height = row;
 }
