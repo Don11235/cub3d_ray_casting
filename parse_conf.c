@@ -1,6 +1,4 @@
 #include "./cub.h"
-#include <cstddef>
-#include <cstdio>
 
 bool ft_valid_file(char *file) {
   size_t len;
@@ -66,7 +64,7 @@ void ft_parse_file(int fd, t_config *config) {
       if (ft_is_texture_line(new_line))
         ft_fill_textu_path(config, new_line);
       else if (ft_is_color_line(new_line))
-        ft_fill_color_path(config, new_line);
+        ft_fill_color_conf(config, new_line);
       else if (ft_is_map_line(new_line)) {
         len = ft_strlen(new_line);
         if (len > config->map.width)

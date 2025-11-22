@@ -25,8 +25,8 @@ int	main(int argc, char **argv)
 	}
 	ft_parse_file(fd, config);
 	close(fd);
-	if (!ft_valid_map(config))
-		ft_free_error("invalide map\n", config);
+	/* if (!ft_valid_map(config)) */
+	/* 	ft_free_error("invalide map\n", config); */
 	ft_free_config(config);
 	return (0);
 }

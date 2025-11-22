@@ -3,3 +3,5 @@
 *.o
 /cub
 /tag
+/mlx
+*.pdf
