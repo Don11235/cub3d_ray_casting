@@ -7,7 +7,7 @@ int	main(int argc, char **argv)
 
 	if (argc != 2)
 	{
-		perror("Error: argument not valid\n");
+		perror("Error\n");
 		return (EXIT_FAILURE);
 	}
 	if (!ft_valid_file(argv[1]))
@@ -24,8 +24,10 @@ int	main(int argc, char **argv)
 	}
 	ft_parse_file(fd, config);
 	close(fd);
-	if (ft_config_is_complete(config))
+	if (!ft_config_is_complete(config))
 		ft_free_error("config\n", config);
+	if(!ft_valid_map(config))
+		perror("Invalid map\n");
 	ft_free_config(config);
-	return (0);
+	return (0);  
 }

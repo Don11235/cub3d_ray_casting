@@ -1,11 +1,11 @@
 SRCS= main.c parse_map.c parse_conf.c parse_utils.c\
-	  parse_texture.c parse_color.c 
+	  parse_texture.c parse_color.c valide_map.c
 
 NAME=cub
 
 CC = gcc
 
-CFLAGS = -Wall -Wextra -Werror -I./include -I$(LIBFT_DIR) #-g -fsanitize=address 
+CFLAGS = -Wall -Wextra -Werror -I./include -I$(LIBFT_DIR) #-isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk #-g -fsanitize=address 
 
 LIBFT_DIR = ./libft
 

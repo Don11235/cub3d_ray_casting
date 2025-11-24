@@ -60,6 +60,7 @@ char			**ft_malloc_map_grid(int height);
 bool			ft_is_map_line(char *line);
 void			ft_fill_map(char **grid, char *line, int row);
 bool			ft_config_is_complete(t_config *config);
+bool			ft_valid_map(t_config *config);
 
 /*textures*/
 bool			ft_is_texture_line(char *line);
