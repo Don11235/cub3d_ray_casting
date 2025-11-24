@@ -9,9 +9,7 @@ bool	ft_valid_file(char *file)
 
 	len = ft_strlen(file);
 	if (len < 5)
-	{
 		return (false);
-	}
 	extention = ft_strchr(file, '.');
 	if (!extention)
 		return (false);

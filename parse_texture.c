@@ -69,8 +69,9 @@ void	ft_fill_textu_path(t_config *config, char *line)
 
 	path = ft_skip_space(line);
 	new_path = ft_extract_path(path);
+	/* printf("path: %s\n", new_path); */
 	if (!new_path || !ft_is_valid_path(new_path))
-		ft_free_error("texture flie path not valide", config);
+		ft_free_error("Error\n", config);
 	if (ft_strncmp(path, "NO ", 3) == 0)
 		config->textures.north = new_path;
 	else if (ft_strncmp(path, "WE ", 3) == 0)
@@ -80,5 +81,5 @@ void	ft_fill_textu_path(t_config *config, char *line)
 	else if (ft_strncmp(path, "SO ", 3) == 0)
 		config->textures.south = new_path;
 	else
-		ft_free_error("texture error", config);
+		ft_free_error("Error\n", config);
 }
