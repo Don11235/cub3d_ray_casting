@@ -21,7 +21,7 @@ BOBJ = $(BSRCS:.c=.o)
 
 CC = cc
 
-FLAGS = -Wall -Wextra -Werror #-isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk
+FLAGS = -Wall -Wextra -Werror -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk
 
 all: $(NAME)
 

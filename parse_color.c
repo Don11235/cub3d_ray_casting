@@ -26,9 +26,6 @@ int	*ft_handel_rgb(char *s)
 	if (!s)
 		return (NULL);
 	split_rgb = ft_split(s, ',');
-	/* printf("%s\n", split_rgb[0]); */
-	/* printf("%s\n", split_rgb[1]); */
-	/* printf("%s\n", split_rgb[2]); */
 	if (!split_rgb || !split_rgb[0] || !split_rgb[1] || !split_rgb[2])
 	{
 		ft_free_split(split_rgb);
@@ -94,5 +91,6 @@ void	ft_fill_color_conf(t_config *config, char *line)
 		ft_free_error("Error!\n", config);
 	}
 	ft_fill_rgb_config(config, rgb, new_line);
+	printf("%d", config->floor.r);
 	free(rgb);
 }

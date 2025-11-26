@@ -26,7 +26,7 @@ int	ft_open_file(char *path)
 		return (-1);
 	fd = open(path, O_RDONLY);
 	if (fd < 0)
-		perror("open");
+		return (-1);
 	return (fd);
 }
 
@@ -49,6 +49,7 @@ t_config	*ft_init_config(void)
 	config->player.dire = '\0';
 	return (config);
 }
+
 bool	ft_config_is_complete(t_config *config)
 {
 	if (!config)

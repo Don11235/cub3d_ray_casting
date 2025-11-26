@@ -1,8 +1,4 @@
 #include "cub.h"
-#include "libft/libft.h"
-#include <errno.h>
-#include <stdio.h>
-#include <string.h>
 
 int	main(int argc, char **argv)
 {
@@ -15,7 +11,10 @@ int	main(int argc, char **argv)
 		return (EXIT_FAILURE);
 	}
 	if (!ft_valid_file(argv[1]))
-		perror("Error\n");
+	{
+		printf("Error\n Ivnalid <file>. valide: <filename.cub>\n");
+		return (EXIT_FAILURE);
+	}
 	fd = ft_open_file(argv[1]);
 	if (fd < 0)
 	{
@@ -26,7 +25,7 @@ int	main(int argc, char **argv)
 	if (!config)
 	{
 		close(fd);
-		perror("Error\n");
+		printf("Error\n malloc\n");
 		return (EXIT_FAILURE);
 	}
 	ft_parse_file(fd, config);

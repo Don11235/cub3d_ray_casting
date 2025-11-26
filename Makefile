@@ -6,7 +6,7 @@ NAME=cub
 
 CC = gcc
 
-CFLAGS = -Wall -Wextra -Werror -I./include -I$(LIBFT_DIR) #-isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk #-g -fsanitize=address 
+CFLAGS = -Wall -Wextra -Werror -I./include -I$(LIBFT_DIR) -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk #-g -fsanitize=address 
 
 LIBFT_DIR = ./libft
 
