@@ -1,4 +1,8 @@
 #include "cub.h"
+#include "libft/libft.h"
+#include <errno.h>
+#include <stdio.h>
+#include <string.h>
 
 int	main(int argc, char **argv)
 {
@@ -7,7 +11,7 @@ int	main(int argc, char **argv)
 
 	if (argc != 2)
 	{
-		perror("Error\n");
+		printf("Error\n Enter: %s <filename>\n", argv[0]);
 		return (EXIT_FAILURE);
 	}
 	if (!ft_valid_file(argv[1]))

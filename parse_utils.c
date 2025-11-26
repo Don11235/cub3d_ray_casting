@@ -1,4 +1,5 @@
 #include "cub.h"
+#include "libft/libft.h"
 
 char	*ft_skip_space(char *line)
 {
@@ -81,7 +82,9 @@ void	ft_free_config(t_config *config)
 
 void	ft_free_error(char *msg, t_config *config)
 {
-	perror(msg);
+	ft_putstr_fd("Error\n", 2);
+	if (msg)
+		ft_putstr_fd(msg, 2);
 	ft_free_config(config);
 	exit(EXIT_FAILURE);
 }
