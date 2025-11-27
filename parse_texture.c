@@ -1,4 +1,5 @@
 #include "cub.h"
+#include <stdio.h>
 
 static bool	ft_check_textu_dir(char *line)
 {
@@ -53,6 +54,10 @@ bool	ft_is_valid_path(char *line)
 	if (!line)
 		return (false);
 	exten = ft_strchr(line, '.');
+	/* printf("%s\n", exten); */
+	/* if(ft_strcmp(exten, ".png") == 0) */
+		/* printf("match\n"); */
+
 	if (!exten || ft_strcmp(exten, ".xpm") != 0 || ft_strcmp(exten, ".png") != 0)
 		return (false);
 	fd = open(line, O_RDONLY);
@@ -69,6 +74,7 @@ void	ft_fill_textu_path(t_config *config, char *line)
 
 	path = ft_skip_space(line);
 	new_path = ft_extract_path(path);
+	/* printf("%s\n", new_path); */
 	if (!new_path || !ft_is_valid_path(new_path))
 		ft_free_error("invalid texture path.\n", config);
 	if (ft_strncmp(path, "NO ", 3) == 0)
