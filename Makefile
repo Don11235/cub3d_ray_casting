@@ -1,5 +1,5 @@
-SRCS= main.c parse_map.c parse_conf.c parse_utils.c\
-	  parse_texture.c parse_color.c valide_map.c valide_map2.c
+SRCS= ./parsing/main.c ./parsing/parse_map.c ./parsing/parse_conf.c ./parsing/parse_utils.c\
+	  ./parsing/parse_texture.c ./parsing/parse_color.c ./parsing/valide_map.c ./parsing/valide_map2.c
 
 NAME=cub
 
@@ -7,7 +7,7 @@ CC = gcc
 
 CFLAGS = -Wall -Wextra -Werror -I./include -I$(LIBFT_DIR) #-isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk #-g -fsanitize=address 
 
-LIBFT_DIR = ./libft
+LIBFT_DIR = ./include/libft
 
 LIBFT = $(LIBFT_DIR)/libft.a
 
