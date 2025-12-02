@@ -1,4 +1,4 @@
-#include "cub.h"
+#include "../include/cub.h"
 
 char	**ft_copy_grid(t_map *map)
 {
@@ -52,18 +52,11 @@ bool	ft_check_map_gaps(t_map *map, t_player *player)
 {
 	char	**arr;
 	int		result;
-	int		i;
 
 	arr = ft_copy_grid(map);
 	if (!arr)
 		return (false);
 	result = ft_recursive_check(arr, player->x, player->y, map->height);
-	i = 0;
-	while (arr[i])
-	{
-		free(arr[i]);
-		i++;
-	}
-	free(arr);
+	ft_free_split(arr);
 	return (result);
 }

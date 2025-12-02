@@ -1,4 +1,4 @@
-#include "cub.h"
+#include "../include/cub.h"
 
 char	*ft_skip_space(char *line)
 {
@@ -25,6 +25,8 @@ bool	ft_is_numeric(char **s)
 	while (s[i])
 	{
 		j = 0;
+		if (!s[i][j])
+			return (false);
 		while (s[i][j])
 		{
 			if (!ft_isdigit(s[i][j]))

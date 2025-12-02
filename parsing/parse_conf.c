@@ -1,4 +1,4 @@
-#include "./cub.h"
+#include "../include/cub.h"
 
 bool	ft_valid_file(char *file)
 {
@@ -32,7 +32,7 @@ t_config	*ft_init_config(void)
 {
 	t_config	*config;
 
-	config = (t_config *)ft_calloc(1, sizeof(t_config));
+	config = ft_calloc(1, sizeof(t_config));
 	if (!config)
 		return (NULL);
 	config->textures.north = NULL;
@@ -44,6 +44,8 @@ t_config	*ft_init_config(void)
 	config->map.height = 0;
 	config->player.x = -1;
 	config->player.y = -1;
+	config->floor_set = false;
+	config->ceil_set = false;
 	config->player.dire = '\0';
 	return (config);
 }
@@ -63,39 +65,27 @@ bool	ft_config_is_complete(t_config *config)
 	return (true);
 }
 
-void	ft_parse_file(int fd, t_config *config)
+int	ft_count_map_l(char *arr)
 {
+	int		fd;
+	int		count;
 	char	*line;
 	char	*new_line;
-	int		len;
-	int		row;
 
-	row = 0;
-	config->map.grid = ft_malloc_map_grid(100);
+	fd = ft_open_file(arr);
+	if (fd < 0)
+		return (-1);
+	count = 0;
 	line = ft_get_next_line(fd);
 	while (line)
 	{
-		new_line = ft_strtrim(line, " \t\n");
+		new_line = ft_strtrim(line, "\n");
 		free(line);
-		if (new_line && new_line[0] != '\0')
-		{
-			if (ft_is_texture_line(new_line))
-				ft_fill_textu_path(config, new_line);
-			else if (ft_is_color_line(new_line))
-				ft_fill_color_conf(config, new_line);
-			else if (ft_is_map_line(new_line))
-			{
-				len = ft_strlen(new_line);
-				if (len > config->map.width)
-					config->map.width = len;
-				ft_fill_map(config->map.grid, new_line, row++);
-				free(new_line);
-				new_line = NULL;
-			}
-		}
-		if (new_line)
-			free(new_line);
+		if (new_line && ft_is_map_line(new_line))
+			count++;
+		free(new_line);
 		line = ft_get_next_line(fd);
 	}
-	config->map.height = row;
+	close(fd);
+	return (count);
 }

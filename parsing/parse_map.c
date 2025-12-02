@@ -1,12 +1,16 @@
-#include "cub.h"
+#include "../include/cub.h"
+#include <stdbool.h>
 
-static bool	ft_is_valid_map(char c)
+bool	ft_is_player_char(char c)
+{
+	return (c == 'N' || c == 'S' || c == 'E' || c == 'W');
+}
+
+static bool	ft_is_valid_map_char(char c)
 {
 	if (c == '0' || c == '1' || c == ' ')
 		return (true);
-	if (c == 'S' || c == 'N' || c == 'E' || c == 'W')
-		return (true);
-	return (false);
+	return (ft_is_player_char(c));
 }
 
 bool	ft_is_map_line(char *line)
@@ -18,7 +22,7 @@ bool	ft_is_map_line(char *line)
 		return (false);
 	while (line[i])
 	{
-		if (!ft_is_valid_map(line[i]))
+		if (!ft_is_valid_map_char(line[i]))
 			return (false);
 		i++;
 	}
@@ -44,11 +48,12 @@ char	**ft_malloc_map_grid(int height)
 	return (grid);
 }
 
-void	ft_fill_map(char **grid, char *line, int row)
+bool	ft_fill_map(char **grid, char *line, int row)
 {
 	if (!grid || !line || row < 0)
-		return ;
+		return (false);
 	grid[row] = ft_strdup(line);
 	if (!grid[row])
-		return ;
+		return (false);
+	return (true);
 }

@@ -1,9 +1,8 @@
-#include "cub.h"
+#include "../include/cub.h"
 
 int	main(int argc, char **argv)
 {
 	t_config	*config;
-	int			fd;
 
 	if (argc != 2)
 	{
@@ -15,23 +14,15 @@ int	main(int argc, char **argv)
 		printf("Error\n Ivnalid <file>. valide: <filename.cub>\n");
 		return (EXIT_FAILURE);
 	}
-	fd = ft_open_file(argv[1]);
-	if (fd < 0)
-	{
-		perror("Error\n");
-		return (EXIT_FAILURE);
-	}
 	config = ft_init_config();
 	if (!config)
 	{
-		close(fd);
 		printf("Error\n malloc\n");
 		return (EXIT_FAILURE);
 	}
-	ft_parse_file(fd, config);
-	close(fd);
+	ft_parse_file(argv[1], config);
 	if (!ft_config_is_complete(config))
-		ft_free_error("", config);
+		ft_free_error("config not complete\n", config);
 	if (!ft_valid_map(config))
 		ft_free_error("map not valide\n", config);
 	ft_free_config(config);

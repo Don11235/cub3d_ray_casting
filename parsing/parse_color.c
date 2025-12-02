@@ -1,5 +1,4 @@
-#include "cub.h"
-#include <stdio.h>
+#include "../include/cub.h"
 
 bool	ft_is_color_line(char *line)
 {
@@ -17,34 +16,36 @@ bool	ft_is_color_line(char *line)
 	return (false);
 }
 
+bool	ft_valid_rgb_splited(char **split_rgb)
+{
+	if (!split_rgb || !split_rgb[0] || !split_rgb[1] || !split_rgb[2])
+		return (false);
+	if (split_rgb[3] != NULL)
+		return (false);
+	if (ft_is_numeric(split_rgb))
+		return (false);
+	return (true);
+}
+
 int	*ft_handel_rgb(char *s)
 {
 	char	**split_rgb;
 	int		*rgb;
-	int		i;
 
 	if (!s)
 		return (NULL);
 	split_rgb = ft_split(s, ',');
-	if (!split_rgb || !split_rgb[0] || !split_rgb[1] || !split_rgb[2])
-	{
-		ft_free_split(split_rgb);
-		return (NULL);
-	}
-	if (!ft_is_numeric(split_rgb))
+	if (!ft_valid_rgb_splited(split_rgb))
 	{
 		ft_free_split(split_rgb);
 		return (NULL);
 	}
 	rgb = (int *)malloc(sizeof(int) * 3);
 	if (!rgb)
-		return (NULL);
-	i = 0;
-	while (i < 3)
-	{
-		rgb[i] = ft_atoi(split_rgb[i]);
-		i++;
-	}
+		return (ft_free_split(split_rgb), NULL);
+	rgb[0] = ft_atoi(split_rgb[0]);
+	rgb[1] = ft_atoi(split_rgb[1]);
+	rgb[2] = ft_atoi(split_rgb[2]);
 	ft_free_split(split_rgb);
 	return (rgb);
 }
@@ -58,38 +59,4 @@ bool	ft_is_valid_rgb(int r, int g, int b)
 	if (b < 0 || b > 255)
 		return (false);
 	return (true);
-}
-
-void	ft_fill_rgb_config(t_config *config, int *rgb, char *line)
-{
-	if (ft_strncmp("F ", line, 2) == 0)
-	{
-		config->floor.r = rgb[0];
-		config->floor.g = rgb[1];
-		config->floor.b = rgb[2];
-	}
-	else if (ft_strncmp("C ", line, 2) == 0)
-	{
-		config->ceil.r = rgb[0];
-		config->ceil.g = rgb[1];
-		config->ceil.b = rgb[2];
-	}
-}
-
-void	ft_fill_color_conf(t_config *config, char *line)
-{
-	char	*new_line;
-	char	*color;
-	int		*rgb;
-
-	new_line = ft_skip_space(line);
-	color = ft_skip_space(new_line + 1);
-	rgb = ft_handel_rgb(color);
-	if (!rgb || !ft_is_valid_rgb(rgb[0], rgb[1], rgb[2]))
-	{
-		free(rgb);
-		ft_free_error("color not valid!\n", config);
-	}
-	ft_fill_rgb_config(config, rgb, new_line);
-	free(rgb);
 }

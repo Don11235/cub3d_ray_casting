@@ -1,7 +1,7 @@
-#include "cub.h"
-#include <stdio.h>
+#include "../include/cub.h"
 
-static bool	ft_check_textu_dir(char *line)
+static bool
+ft_check_textu_dir(char *line)
 {
 	if (ft_strncmp(line, "NO ", 3) == 0)
 		return (true);
@@ -23,9 +23,7 @@ bool	ft_is_texture_line(char *line)
 	new_line = ft_skip_space(line);
 	if (!new_line)
 		return (false);
-	if (ft_check_textu_dir(new_line))
-		return (true);
-	return (false);
+	return (ft_check_textu_dir(new_line));
 }
 
 char	*ft_extract_path(char *line)
@@ -53,12 +51,9 @@ bool	ft_is_valid_path(char *line)
 
 	if (!line)
 		return (false);
-	exten = ft_strchr(line, '.');
-	/* printf("%s\n", exten); */
-	/* if(ft_strcmp(exten, ".png") == 0) */
-		/* printf("match\n"); */
-
-	if (!exten || ft_strcmp(exten, ".xpm") != 0 || ft_strcmp(exten, ".png") != 0)
+	exten = ft_strrchr(line, '.');
+	if (!exten || (ft_strcmp(exten, ".xpm") != 0 && ft_strcmp(exten,
+				".png") != 0))
 		return (false);
 	fd = open(line, O_RDONLY);
 	if (fd < 0)
@@ -67,24 +62,23 @@ bool	ft_is_valid_path(char *line)
 	return (true);
 }
 
-void	ft_fill_textu_path(t_config *config, char *line)
-{
-	char	*path;
-	char	*new_path;
+/* void	ft_fill_textu_path(t_config *config, char *line) */
+/* { */
+/* 	char	*path; */
+/* 	char	*new_path; */
 
-	path = ft_skip_space(line);
-	new_path = ft_extract_path(path);
-	/* printf("%s\n", new_path); */
-	if (!new_path || !ft_is_valid_path(new_path))
-		ft_free_error("invalid texture path.\n", config);
-	if (ft_strncmp(path, "NO ", 3) == 0)
-		config->textures.north = new_path;
-	else if (ft_strncmp(path, "WE ", 3) == 0)
-		config->textures.west = new_path;
-	else if (ft_strncmp(path, "EA ", 3) == 0)
-		config->textures.east = new_path;
-	else if (ft_strncmp(path, "SO ", 3) == 0)
-		config->textures.south = new_path;
-	else
-		ft_free_error("path not found.\n", config);
-}
+/* 	path = ft_skip_space(line); */
+/* 	new_path = ft_extract_path(path); */
+/* 	if (!new_path || !ft_is_valid_path(new_path)) */
+/* 		ft_free_error("invalid texture path.\n", config); */
+/* 	if (ft_strncmp(path, "NO ", 3) == 0) */
+/* 		config->textures.north = new_path; */
+/* 	else if (ft_strncmp(path, "WE ", 3) == 0) */
+/* 		config->textures.west = new_path; */
+/* 	else if (ft_strncmp(path, "EA ", 3) == 0) */
+/* 		config->textures.east = new_path; */
+/* 	else if (ft_strncmp(path, "SO ", 3) == 0) */
+/* 		config->textures.south = new_path; */
+/* 	else */
+/* 		ft_free_error("path not found.\n", config); */
+/* } */
