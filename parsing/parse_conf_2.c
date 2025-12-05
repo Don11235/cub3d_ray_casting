@@ -14,6 +14,7 @@ static void	ft_handel_line(char *line, t_config *config, int *row)
 		if (len > config->map.width)
 			config->map.width = len;
 		ft_fill_map(config->map.grid, line, *row);
+		(*row)++;
 	};
 }
 

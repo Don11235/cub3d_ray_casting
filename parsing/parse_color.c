@@ -22,7 +22,7 @@ bool	ft_valid_rgb_splited(char **split_rgb)
 		return (false);
 	if (split_rgb[3] != NULL)
 		return (false);
-	if (ft_is_numeric(split_rgb))
+	if (!ft_is_numeric(split_rgb))
 		return (false);
 	return (true);
 }

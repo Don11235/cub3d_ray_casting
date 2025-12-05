@@ -12,6 +12,7 @@ void	ft_fill_rgb_config(t_config *config, int *rgb, char *line)
 		config->floor.r = rgb[0];
 		config->floor.g = rgb[1];
 		config->floor.b = rgb[2];
+		config->floor_set = true;
 	}
 	else if (ft_strncmp("C ", line, 2) == 0)
 	{
@@ -23,6 +24,7 @@ void	ft_fill_rgb_config(t_config *config, int *rgb, char *line)
 		config->ceil.r = rgb[0];
 		config->ceil.g = rgb[1];
 		config->ceil.b = rgb[2];
+		config->ceil_set = true;
 	}
 }
 

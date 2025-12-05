@@ -1,6 +1,6 @@
 #include "../include/cub.h"
 
-static bool	ft_check_row(t_config *config, int row)
+static int	ft_check_row(t_config *config, int row)
 {
 	int	col;
 	int	count;

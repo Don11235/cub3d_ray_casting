@@ -8,7 +8,7 @@ bool	ft_valid_file(char *file)
 	len = ft_strlen(file);
 	if (len < 5)
 		return (false);
-	extention = ft_strchr(file, '.');
+	extention = ft_strrchr(file, '.');
 	if (!extention)
 		return (false);
 	if (ft_strcmp(".cub", extention) != 0)
@@ -58,7 +58,7 @@ bool	ft_config_is_complete(t_config *config)
 		return (false);
 	if (!config->textures.west || !config->textures.east)
 		return (false);
-	if (config->floor.r < 0 || config->ceil.r < 0)
+	if (!config->floor_set || !config->ceil_set)
 		return (false);
 	if (!config->map.grid || config->map.height == 0)
 		return (false);

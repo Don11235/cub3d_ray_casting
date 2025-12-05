@@ -35,7 +35,7 @@ static void	ft_fill_no_we(t_config *config, char *path, char *new_path)
 	}
 	else if (ft_strncmp(path, "WE ", 3) == 0)
 	{
-		if (config->textures.north != NULL)
+		if (config->textures.west != NULL)
 		{
 			free(new_path);
 			ft_free_error("Duplicate WE\n", config);
