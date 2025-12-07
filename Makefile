@@ -1,7 +1,8 @@
 SRCS= ./parsing/main.c ./parsing/parse_map.c ./parsing/parse_conf.c ./parsing/parse_utils.c\
 	./parsing/parse_texture.c ./parsing/parse_color.c ./parsing/valide_map.c ./parsing/valide_map2.c\
 	./parsing/parse_texture_2.c ./parsing/parse_color_2.c ./parsing/parse_conf_2.c 
-NAME=cub
+
+NAME=cub3D
 
 CC = gcc
 

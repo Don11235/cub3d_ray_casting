@@ -15,6 +15,11 @@ static void	ft_handel_line(char *line, t_config *config, int *row)
 			config->map.width = len;
 		ft_fill_map(config->map.grid, line, *row);
 		(*row)++;
+	}
+	else if (config->map.grid && line && line[0])
+	{
+		// If we've allocated the map grid and get a non-texture/color/map line, error
+		ft_free_error("invalid map line\n", config);
 	};
 }
 
