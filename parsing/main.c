@@ -1,5 +1,45 @@
 #include "../include/cub.h"
 
+void ft_print_config(t_config *config)
+{
+  int i;
+
+  printf("\n=== CONFIG DATA ===\n\n");
+  
+  printf("TEXTURES:\n");
+  printf("  North:  %s\n", config->textures.north ? config->textures.north : "(null)");
+  printf("  South:  %s\n", config->textures.south ? config->textures.south : "(null)");
+  printf("  West:   %s\n", config->textures.west ? config->textures.west : "(null)");
+  printf("  East:   %s\n", config->textures.east ? config->textures.east : "(null)");
+  
+  printf("\nCOLORS:\n");
+  printf("  Floor:   RGB(%d, %d, %d) [%s]\n", 
+         config->floor.r, config->floor.g, config->floor.b,
+         config->floor_set ? "SET" : "NOT SET");
+  printf("  Ceiling: RGB(%d, %d, %d) [%s]\n", 
+         config->ceil.r, config->ceil.g, config->ceil.b,
+         config->ceil_set ? "SET" : "NOT SET");
+  
+  printf("\nPLAYER:\n");
+  printf("  Position: (%d, %d)\n", config->player.x, config->player.y);
+  printf("  Direction: '%c'\n", config->player.dire);
+  
+  printf("\nMAP:\n");
+  printf("  Width:  %d\n", config->map.width);
+  printf("  Height: %d\n", config->map.height);
+  printf("  Grid:\n");
+  i = 0;
+  while (i < config->map.height && config->map.grid[i])
+  {
+    printf("    [%2d] '%s'\n", i, config->map.grid[i]);
+    i++;
+  }
+  
+  printf("\nVALIDATION:\n");
+  printf("  Valid: %s\n", config->valid ? "YES" : "NO");
+  printf("\n===================\n\n");
+}
+
 int main(int argc, char **argv) {
   t_config *config;
 
@@ -21,6 +61,9 @@ int main(int argc, char **argv) {
     ft_free_error("config not complete\n", config);
   if (!ft_valid_map(config))
     ft_free_error("map not valide\n", config);
+  
+  ft_print_config(config);
+  
   ft_free_config(config);
   return (0);
 }

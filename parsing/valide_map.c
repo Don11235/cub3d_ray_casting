@@ -20,6 +20,7 @@ static int	ft_check_row(t_config *config, int row)
 	}
 	return (count);
 }
+
 static bool	ft_player_pos(t_config *config)
 {
 	int	row;
@@ -80,15 +81,6 @@ static bool	ft_valid_vertical(t_map *map)
 	}
 	return (true);
 }
-
-/* bool	ft_valid_map_edge(t_map *map) */
-/* { */
-/* 	if (!ft_valid_horizontal(map)) */
-/* 		return (false); */
-/* 	if (!ft_valid_vertical(map)) */
-/* 		return (false); */
-/* 	return (true); */
-/* } */
 
 bool	ft_valid_map(t_config *config)
 {
