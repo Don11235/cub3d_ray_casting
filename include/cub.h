@@ -6,8 +6,12 @@
 # include <stdbool.h>
 # include <stdio.h>
 # include <stdlib.h>
+#include <stdnoreturn.h>
 # include <string.h>
+#include <sys/errno.h>
 # include <unistd.h>
+#include <math.h>
+#include <sys/time.h>
 
 typedef struct s_texture
 {
@@ -50,6 +54,79 @@ typedef struct s_config
 	bool		ceil_set;
 }				t_config;
 
+typedef enum s_tex_id
+{
+	EA,
+	NO,
+	SO,
+	WE,
+}	t_tex_id;
+
+typedef struct	s_data
+{
+	void	*img;
+	char	*addr;
+	int		bits_per_pixel;
+	int		line_length;
+	int		endian;
+}			t_data;
+
+typedef struct	s_tex
+{
+	t_data	img_xpm;
+	int		width;
+	int		height;
+}	t_tex;
+
+typedef struct	s_game_state
+{
+    double		posX;
+    double		posY;
+    double		dirX;
+    double		dirY;
+    double		planeX;
+    double		planeY;
+    t_data		img;
+    void		*mlx;
+    void		*mlx_win;
+    double		oldTime;
+    double		time; 
+    double		frameTime;
+	t_tex		textures[4];
+    int			keycode;
+    double		moveSpeed;
+    double		rotSpeed;
+    int			keys[127];
+	int			floor_c;
+	int			ceiling_c;
+	t_config	*config;
+}	t_game_state;
+
+typedef struct	s_ray
+{
+	double	cameraX;
+    double	rayDirX;
+    double	rayDirY;
+    int		mapX;
+    int		mapY;
+    double	sideDistX;
+    double	sideDistY;
+    double	deltaDistX;
+    double	deltaDistY;
+    int		stepX;
+    int		stepY;
+    int		hit;
+    int		side;
+    double	perpWallDist;
+}	t_ray;
+
+typedef struct	s_draw
+{
+	int	lineHeight;
+	int	drawStart;
+	int	drawEnd;
+}	t_draw;
+
 /*Parse functions*/
 
 /*main config*/
@@ -86,5 +163,12 @@ bool			ft_is_color_line(char *line);
 void			ft_fill_color_conf(t_config *config, char *line);
 int				*ft_handel_rgb(char *s);
 bool			ft_is_valid_rgb(int r, int g, int b);
+
+/* Graphics / Rendering functions */
+
+double			getTicks(void);
+void			init_game(t_game_state *game, t_config *config);
+void			my_mlx_pixel_put(t_data *data, int x, int y, int color);
+unsigned int	my_mlx_pixel_get(t_data *data, int x, int y);
 
 #endif
