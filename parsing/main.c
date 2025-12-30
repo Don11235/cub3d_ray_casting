@@ -62,8 +62,8 @@ int main(int argc, char **argv) {
   if (!ft_valid_map(config))
     ft_free_error("map not valide\n", config);
   
-  ft_print_config(config);
-  
+  //ft_print_config(config);
+  run_engine(config);
   ft_free_config(config);
   return (0);
 }
