@@ -63,6 +63,7 @@ int main(int argc, char **argv) {
     ft_free_error("map not valide\n", config);
   
   //ft_print_config(config);
+  //printf("%c\n", config->map.grid[13][25]);
   run_engine(config);
   ft_free_config(config);
   return (0);

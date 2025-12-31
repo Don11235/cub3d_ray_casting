@@ -6,7 +6,7 @@
 /*   By: mben-cha <mben-cha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/28 23:07:14 by mben-cha          #+#    #+#             */
-/*   Updated: 2025/12/31 13:22:42 by mben-cha         ###   ########.fr       */
+/*   Updated: 2025/12/31 20:39:18 by mben-cha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ static void load_textures(t_game_state *game)
 	while (i < 4)
 	{
 		game->textures[i].img_xpm.img = mlx_xpm_file_to_image(game->mlx,
-				tmp_arr[i], &game->textures[i].width, &game->textures->height);
+				tmp_arr[i], &game->textures[i].width, &game->textures[i].height);
 		game->textures[i].img_xpm.addr = mlx_get_data_addr(game->textures[i].img_xpm.img,
 				&game->textures[i].img_xpm.bits_per_pixel,
 				&game->textures[i].img_xpm.line_length,
