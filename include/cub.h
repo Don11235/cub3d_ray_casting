@@ -122,9 +122,12 @@ typedef struct	s_ray
 
 typedef struct	s_draw
 {
-	int	lineHeight;
-	int	drawStart;
-	int	drawEnd;
+	int		lineHeight;
+	int		drawStart;
+	int		drawEnd;
+	double	step;
+	double	texPos;
+	t_tex	texture;
 }	t_draw;
 
 /*Parse functions*/
@@ -170,5 +173,19 @@ double			getTicks(void);
 void			init_game(t_game_state *game, t_config *config);
 void			my_mlx_pixel_put(t_data *data, int x, int y, int color);
 unsigned int	my_mlx_pixel_get(t_data *data, int x, int y);
+void			camera_move(t_game_state *game);
+void			camera_rotate(t_game_state *game);
+void			compute_wall(t_ray *ray, t_draw *draw);
+void			dda(t_game_state *game, t_ray *ray);
+void			draw_wall(t_game_state *game, t_ray *ray, t_draw *draw, int x);
+void			init_ray(t_game_state *game, t_ray *ray, int x);
+void			update_frame_time(t_game_state *game);
+void			draw_floor_ceiling(t_game_state *game);
+void			render_walls(t_game_state *game);
+int				redraw(t_game_state *game);
+int				keyPress(int keycode, t_game_state *game);
+int				keyRelease(int keycode, t_game_state *game);
+int				Close(t_game_state *game);
+void			run_engine(t_config *config);
 
 #endif

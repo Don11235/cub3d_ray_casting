@@ -1,25 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   render.c                                           :+:      :+:    :+:   */
+/*   render_walls.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mben-cha <mben-cha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/12/29 12:59:52 by mben-cha          #+#    #+#             */
-/*   Updated: 2025/12/30 22:23:22 by mben-cha         ###   ########.fr       */
+/*   Created: 2025/12/29 21:59:10 by mben-cha          #+#    #+#             */
+/*   Updated: 2025/12/30 22:33:48 by mben-cha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/cub.h"
-#include "../include/minilibx/mlx.h"
 
-int redraw(t_game_state *game)
+void    render_walls(t_game_state *game)
 {
-    update_frame_time(game);
-    camera_move(game);
-    camera_rotate(game);
-    draw_floor_ceiling(game);
-    render_walls(game);
-    mlx_put_image_to_window(game->mlx, game->mlx_win, game->img.img, 0, 0);
-    return (0);
+    int     x;
+    t_ray   ray;
+    t_draw  draw;
+
+    x = 0;
+    while (x < 1920)
+    {
+        init_ray(game, &ray, x);
+        dda(game, &ray);
+        compute_wall(&ray, &draw);
+        draw_wall(game, &ray, &draw, x);
+        x++;
+    }
 }

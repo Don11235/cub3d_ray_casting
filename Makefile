@@ -1,12 +1,17 @@
 SRCS= ./parsing/main.c ./parsing/parse_map.c ./parsing/parse_conf.c ./parsing/parse_utils.c\
 	./parsing/parse_texture.c ./parsing/parse_color.c ./parsing/valide_map.c ./parsing/valide_map2.c\
-	./parsing/parse_texture_2.c ./parsing/parse_color_2.c ./parsing/parse_conf_2.c 
+	./parsing/parse_texture_2.c ./parsing/parse_color_2.c ./parsing/parse_conf_2.c\
+	./engine/camera_move.c ./engine/camera_rotate.c ./engine/compute_wall.c ./engine/dda.c ./engine/draw_floor_ceiling.c\
+	./engine/draw_wall.c ./engine/init_engine.c ./engine/init_ray.c ./engine/mlx_utils.c ./engine/render_walls.c\
+	./engine/render.c ./engine/run_engine.c ./engine/update_frame_time.c ./engine/utils.c
 
 NAME=cub3D
 
 CC = gcc
 
-CFLAGS = -Wall -Wextra -Werror -I./include -I$(LIBFT_DIR) #-isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk #-g -fsanitize=address 
+CFLAGS = -Wall -Wextra -Werror -g -fsanitize=address -I./include -I$(LIBFT_DIR) 
+
+LDFLAGS = -L./include/minilibx -lmlx -framework OpenGL -framework AppKit
 
 LIBFT_DIR = ./include/libft
 
@@ -20,7 +25,7 @@ $(LIBFT):
 	$(MAKE) -C $(LIBFT_DIR)
 
 $(NAME): $(LIBFT) $(OBJECTS)
-	$(CC) $(CFLAGS) $(OBJECTS) $(LIBFT) -o $(NAME)
+	$(CC) $(CFLAGS) $(LDFLAGS) $(OBJECTS) $(LIBFT) -o $(NAME)
 
 %.o: %.c cub.h
 	$(CC) $(CFLAGS) -c $< -o $@
