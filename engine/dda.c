@@ -6,7 +6,7 @@
 /*   By: mben-cha <mben-cha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/29 22:47:14 by mben-cha          #+#    #+#             */
-/*   Updated: 2025/12/29 22:55:25 by mben-cha         ###   ########.fr       */
+/*   Updated: 2025/12/31 15:30:04 by mben-cha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ void    dda(t_game_state *game, t_ray *ray)
             ray->mapY = ray->mapY + ray->stepY;
             ray->side = 1;
         }
-        if (game->config->map.grid[ray->mapX][ray->mapY] == '1')
+        if (game->config->map.grid[ray->mapY][ray->mapX] == '1')
             ray->hit = 1;
     }
 }

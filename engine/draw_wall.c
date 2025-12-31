@@ -6,7 +6,7 @@
 /*   By: mben-cha <mben-cha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/30 16:21:20 by mben-cha          #+#    #+#             */
-/*   Updated: 2025/12/30 20:35:30 by mben-cha         ###   ########.fr       */
+/*   Updated: 2025/12/31 20:08:21 by mben-cha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,14 +57,16 @@ void    draw_wall(t_game_state *game, t_ray *ray, t_draw *draw, int x)
     }
     else if (ray->side == 1 && ray->rayDirY > 0)
     {
-        //ray hit north wall
-        draw->texture = game->textures[NO];
+        //ray hit south wall
+        draw->texture = game->textures[SO];
+        //draw->texture = game->textures[WE];
         draw_wall_column(game, ray, draw, x);
     }
     else if (ray->side == 1 && ray->rayDirY < 0)
     {
-        //ray hit south wall
-        draw->texture = game->textures[SO];
+        //ray hit north wall
+        draw->texture = game->textures[NO];
+        //draw->texture = game->textures[EA];
         draw_wall_column(game, ray, draw, x);
     }
 }

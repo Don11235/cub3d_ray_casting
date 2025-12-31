@@ -6,7 +6,7 @@
 /*   By: mben-cha <mben-cha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/28 23:07:14 by mben-cha          #+#    #+#             */
-/*   Updated: 2025/12/29 12:34:58 by mben-cha         ###   ########.fr       */
+/*   Updated: 2025/12/31 13:22:42 by mben-cha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ static void init_window_and_image(t_game_state *game)
 	game->mlx = mlx_init();
 	game->mlx_win = mlx_new_window(game->mlx, 1920, 1080, "Cube3D");
 	game->img.img = mlx_new_image(game->mlx, 1920, 1080);
-	game->img.addr = mlx_get_data_addr(game->mlx, &game->img.bits_per_pixel,
+	game->img.addr = mlx_get_data_addr(game->img.img, &game->img.bits_per_pixel,
 			&game->img.line_length, &game->img.endian);
 }
 
@@ -36,7 +36,7 @@ static void load_textures(t_game_state *game)
 	{
 		game->textures[i].img_xpm.img = mlx_xpm_file_to_image(game->mlx,
 				tmp_arr[i], &game->textures[i].width, &game->textures->height);
-		game->textures[i].img_xpm.addr = mlx_get_data_addr(game->mlx,
+		game->textures[i].img_xpm.addr = mlx_get_data_addr(game->textures[i].img_xpm.img,
 				&game->textures[i].img_xpm.bits_per_pixel,
 				&game->textures[i].img_xpm.line_length,
 				&game->textures[i].img_xpm.endian);
