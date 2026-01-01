@@ -1,7 +1,7 @@
 *.out
 *.gch
 *.o
-/cub
+/cub3D
 /tags
 /mlx
 *.pdf

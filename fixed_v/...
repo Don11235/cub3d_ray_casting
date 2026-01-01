@@ -1,0 +1,35 @@
+# Changelog
+
+This document outlines the changes made to the `cub3D` project.
+
+## Version 1.0.0
+
+### Bug Fixes
+
+- **Heap-buffer-overflow in `engine/camera_move.c`**
+  - **Issue**: The game was crashing with a heap-buffer-overflow in `camera_move.c` due to incorrect map grid indexing (`[x][y]` instead of `[y][x]`) and a lack of boundary checks when calculating new player positions. This led to out-of-bounds memory access, especially when `new_pos_x` or `new_pos_y` became negative or exceeded map dimensions.
+  - **Resolution**:
+    - Introduced a static helper function `is_valid_map_coord` to perform boundary checks before accessing the map grid.
+    - Corrected all map grid accesses in `camera_move_forward_backward` and `camera_move_left_right` to consistently use `[y][x]` (row, column) indexing.
+    - Refactored collision detection logic to calculate potential `new_pos_x` and `new_pos_y` first, then validate these coordinates against map boundaries and check for '0' (empty space) in the grid before updating the player's actual `posX` and `posY`.
+
+- **`Makefile` `fsanitize` flag incompatibility on macOS**
+  - **Issue**: The `Makefile` used `-fsanitize=memory` in `CFLAGS`, which is not supported on macOS, causing build failures.
+  - **Resolution**: Changed `CFLAGS` from `-fsanitize=memory` to `-fsanitize=address` to ensure compatibility with macOS's AddressSanitizer for memory error detection.
+
+### Enhancements
+
+- **Camera Rotation Speed Adjustment**
+  - **Issue**: Users reported that camera rotation was too slow, making it difficult to achieve a full 360-degree view or look behind the player effectively.
+  - **Resolution**: Increased the `rotSpeed` multiplier in the `camera_rotate` function (located in `engine/camera_rotate.c`) from `3` to `5`. This change makes the camera rotation more responsive and noticeable, improving the player's ability to control their view. A comment was added to the function to clarify the `rotSpeed` calculation and its impact.
+
+### Code Cleanup
+
+- **Removed Debug `printf` Statements**
+  - **Issue**: Several `printf` statements were present in the codebase, used for debugging purposes, which cluttered the console output during runtime.
+  - **Resolution**:
+    - Removed `printf("render_walls\n");` from `engine/render_walls.c`.
+    - Removed `printf("redraw\n");` from `engine/render.c`.
+    - Removed multiple `printf` statements related to initialization steps from `engine/init_engine.c`.
+    - Removed `printf("draw_floor_ceiling\n");` from `engine/draw_floor_ceiling.c`.
+    - Removed the call to `ft_print_config(config);` from `parsing/main.c`, which was responsible for printing detailed configuration data.
