@@ -40,7 +40,8 @@ void ft_print_config(t_config *config)
   printf("\n===================\n\n");
 }
 
-int main(int argc, char **argv) {
+int main(int argc, char **argv)
+{
   t_config *config;
 
   if (argc != 2) {
@@ -63,7 +64,7 @@ int main(int argc, char **argv) {
     ft_free_error("map not valide\n", config);
   
   //ft_print_config(config);
-  //printf("%c\n", config->map.grid[13][25]);
+  //printf("%c\n", config->map.grid[config->player.y][config->player.x]);
   run_engine(config);
   ft_free_config(config);
   return (0);

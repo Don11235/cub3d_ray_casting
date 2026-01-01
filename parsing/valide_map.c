@@ -95,6 +95,6 @@ bool	ft_valid_map(t_config *config)
 	if (!ft_check_map_gaps(&config->map, &config->player))
 		return (false);
 	config->valid = true;
-	//config->map.grid[config->player.y][config->player.x] = '0'; //changed
+	config->map.grid[config->player.y][config->player.x] = '0'; //changed
 	return (true);
 }

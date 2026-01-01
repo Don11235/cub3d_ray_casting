@@ -187,5 +187,6 @@ int				keyPress(int keycode, t_game_state *game);
 int				keyRelease(int keycode, t_game_state *game);
 int				Close(t_game_state *game);
 void			run_engine(t_config *config);
+int				is_inside_map(t_game_state *game, int y, int x);
 
 #endif
