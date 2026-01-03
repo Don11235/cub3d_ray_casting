@@ -6,7 +6,7 @@
 /*   By: mben-cha <mben-cha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/28 23:07:14 by mben-cha          #+#    #+#             */
-/*   Updated: 2025/12/31 20:39:18 by mben-cha         ###   ########.fr       */
+/*   Updated: 2026/01/01 22:01:03 by mben-cha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,8 +66,8 @@ static void init_camera(t_game_state *game)
 		game->dirX = -1;
 		game->dirY = 0;
 	}
-	game->posX = game->config->player.x;
-	game->posY = game->config->player.y;
+	game->posX = game->config->player.x + 0.5;
+	game->posY = game->config->player.y + 0.5;
 	game->planeX = game->dirY * 0.66;
 	game->planeY = game->dirX * -0.66;
 }
