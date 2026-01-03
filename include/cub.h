@@ -78,55 +78,55 @@ typedef struct	s_tex
 	int		height;
 }	t_tex;
 
-typedef struct	s_game_state
+typedef struct s_game_state
 {
-    double		posX;
-    double		posY;
-    double		dirX;
-    double		dirY;
-    double		planeX;
-    double		planeY;
-    t_data		img;
-    void		*mlx;
-    void		*mlx_win;
-    double		oldTime;
-    double		time; 
-    double		frameTime;
+	double		pos_x;
+	double		pos_y;
+	double		dir_x;
+	double		dir_y;
+	double		plane_x;
+	double		plane_y;
+	t_data		img;
+	void		*mlx;
+	void		*mlx_win;
+	double		old_time;
+	double		time; 
+	double		frame_time;
 	t_tex		textures[4];
-    int			keycode;
-    double		moveSpeed;
-    double		rotSpeed;
-    int			keys[127];
+	int			keycode;
+	double		move_speed;
+	double		rot_speed;
+	int			keys[127];
 	int			floor_c;
 	int			ceiling_c;
 	t_config	*config;
 }	t_game_state;
 
-typedef struct	s_ray
+typedef struct s_ray
 {
-	double	cameraX;
-    double	rayDirX;
-    double	rayDirY;
-    int		mapX;
-    int		mapY;
-    double	sideDistX;
-    double	sideDistY;
-    double	deltaDistX;
-    double	deltaDistY;
-    int		stepX;
-    int		stepY;
-    int		hit;
-    int		side;
-    double	perpWallDist;
+	double	camera_x;
+	double	ray_dir_x;
+	double	ray_dir_y;
+	int		map_x;
+	int		map_y;
+	double	side_dist_x;
+	double	side_dist_y;
+	double	delta_dist_x;
+	double	delta_dist_y;
+	int		step_x;
+	int		step_y;
+	int		hit;
+	int		side;
+	double	perp_wall_dist;
 }	t_ray;
 
-typedef struct	s_draw
+typedef struct s_draw
 {
-	int		lineHeight;
-	int		drawStart;
-	int		drawEnd;
+	int		line_height;
+	int		draw_start;
+	int		draw_end;
 	double	step;
-	double	texPos;
+	double	tex_pos;
 	t_tex	texture;
 }	t_draw;
 
@@ -188,5 +188,6 @@ int				keyRelease(int keycode, t_game_state *game);
 int				Close(t_game_state *game);
 void			run_engine(t_config *config);
 int				is_inside_map(t_game_state *game, int y, int x);
+void			is_valid_texture(t_game_state *game, int index, void *img);
 
 #endif
