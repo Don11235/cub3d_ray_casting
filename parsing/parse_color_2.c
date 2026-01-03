@@ -43,5 +43,4 @@ void	ft_fill_color_conf(t_config *config, char *line)
 		ft_free_error("color not valid!\n", config);
 	}
 	ft_fill_rgb_config(config, rgb, new_line);
-	free(rgb);
 }
