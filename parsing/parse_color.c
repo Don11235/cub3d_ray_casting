@@ -27,12 +27,37 @@ bool	ft_valid_rgb_splited(char **split_rgb)
 	return (true);
 }
 
+static bool	ft_is_valid_rgb_string(char *s)
+{
+	int	i;
+
+	if (!s || !s[0])
+		return (false);
+	i = 0;
+	while (s[i])
+	{
+		if (!ft_isdigit(s[i]) && s[i] != ',')
+			return (false);
+		i++;
+	}
+	if (s[0] == ',' || s[ft_strlen(s) - 1] == ',')
+		return (false);
+	i = 0;
+	while (s[i])
+	{
+		if (s[i] == ',' && s[i + 1] == ',')
+			return (false);
+		i++;
+	}
+	return (true);
+}
+
 int	*ft_handel_rgb(char *s)
 {
 	char	**split_rgb;
 	int		*rgb;
 
-	if (!s)
+	if (!s || !ft_is_valid_rgb_string(s))
 		return (NULL);
 	split_rgb = ft_split(s, ',');
 	if (!ft_valid_rgb_splited(split_rgb))

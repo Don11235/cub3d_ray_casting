@@ -5,9 +5,17 @@ static void	ft_handel_line(char *line, t_config *config, int *row)
 	int	len;
 
 	if (ft_is_texture_line(line))
+	{
+		if (*row > 0)
+			ft_free_error("map note valide\n", config);
 		ft_fill_textu_path(config, line);
+	}
 	else if (ft_is_color_line(line))
+	{
+		if (*row > 0)
+			ft_free_error("map note valide\n", config);
 		ft_fill_color_conf(config, line);
+	}
 	else if (ft_is_map_line(line))
 	{
 		len = ft_strlen(line);
@@ -15,6 +23,7 @@ static void	ft_handel_line(char *line, t_config *config, int *row)
 			config->map.width = len;
 		ft_fill_map(config->map.grid, line, *row);
 		(*row)++;
+		config->map.height = *row;
 	}
 	else if (config->map.grid && line && line[0])
 	{
@@ -57,5 +66,4 @@ void	ft_parse_file(char *arr, t_config *config)
 	row = 0;
 	ft_read_line(fd, config, &row);
 	close(fd);
-	config->map.height = row;
 }
