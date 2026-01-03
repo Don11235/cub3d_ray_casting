@@ -6,29 +6,29 @@
 /*   By: mben-cha <mben-cha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/29 22:47:14 by mben-cha          #+#    #+#             */
-/*   Updated: 2026/01/01 17:59:41 by mben-cha         ###   ########.fr       */
+/*   Updated: 2026/01/03 20:01:30 by mben-cha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/cub.h"
 
-void    dda(t_game_state *game, t_ray *ray)
+void	dda(t_game_state *game, t_ray *ray)
 {
-    while (ray->hit == 0)
-    {
-        if (ray->sideDistX < ray->sideDistY)
-        {
-            ray->sideDistX = ray->sideDistX + ray->deltaDistX;
-            ray->mapX = ray->mapX + ray->stepX;
-            ray->side = 0;
-        }
-        else 
-        {
-            ray->sideDistY = ray->sideDistY + ray->deltaDistY;
-            ray->mapY = ray->mapY + ray->stepY;
-            ray->side = 1;
-        }
-        if (game->config->map.grid[ray->mapY][ray->mapX] == '1')
-            ray->hit = 1;
-    }
+	while (ray->hit == 0)
+	{
+		if (ray->side_dist_x < ray->side_dist_y)
+		{
+			ray->side_dist_x = ray->side_dist_x + ray->delta_dist_x;
+			ray->map_x = ray->map_x + ray->step_x;
+			ray->side = 0;
+		}
+		else 
+		{
+			ray->side_dist_y = ray->side_dist_y + ray->delta_dist_y;
+			ray->map_y = ray->map_y + ray->step_y;
+			ray->side = 1;
+		}
+		if (game->config->map.grid[ray->map_y][ray->map_x] == '1')
+			ray->hit = 1;
+	}
 }
