@@ -1,7 +1,18 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   parse_texture.c                                    :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: mohkhald <mohkhald@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/01/03 23:11:24 by mohkhald          #+#    #+#             */
+/*   Updated: 2026/01/03 23:11:25 by mohkhald         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../include/cub.h"
 
-static bool
-ft_check_textu_dir(char *line)
+static bool	ft_check_textu_dir(char *line)
 {
 	if (ft_strncmp(line, "NO ", 3) == 0)
 		return (true);

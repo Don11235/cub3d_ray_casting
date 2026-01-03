@@ -6,7 +6,7 @@
 /*   By: mben-cha <mben-cha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/29 20:00:53 by mben-cha          #+#    #+#             */
-/*   Updated: 2026/01/01 23:28:34 by mben-cha         ###   ########.fr       */
+/*   Updated: 2026/01/04 00:54:16 by mohkhald         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,69 +29,43 @@ unsigned int	my_mlx_pixel_get(t_data *data, int x, int y)
 	return (*(unsigned int *)dst);
 }
 
-int	keyPress(int keycode, t_game_state *game)
+int	key_press(int keycode, t_game_state *game)
 {
 	if (keycode == 13)
-	{
 		game->keys['W'] = 1;
-	}
 	if (keycode == 1)
-	{
 		game->keys['S'] = 1;
-	}
 	if (keycode == 0)
-	{
 		game->keys['A'] = 1;
-	}
 	if (keycode == 2)
-	{
 		game->keys['D'] = 1;
-	}
 	if (keycode == 123)
-	{
 		game->keys[123] = 1;
-	}
 	if (keycode == 124)
-	{
 		game->keys[124] = 1;
-	}
 	if (keycode == 53)
-	{
-		Close(game);
-	}
+		ft_close(game);
 	return (0);
 }
 
-int	keyRelease(int keycode, t_game_state *game)
+int	key_release(int keycode, t_game_state *game)
 {
 	if (keycode == 13)
-	{
 		game->keys['W'] = 0;
-	}
 	if (keycode == 1)
-	{
 		game->keys['S'] = 0;
-	}
 	if (keycode == 0)
-	{
 		game->keys['A'] = 0;
-	}
 	if (keycode == 2)
-	{
 		game->keys['D'] = 0;
-	}
 	if (keycode == 123)
-	{
 		game->keys[123] = 0;
-	}
 	if (keycode == 124)
-	{
 		game->keys[124] = 0;
-	}
 	return (0);
 }
 
-int	Close(t_game_state *game)
+int	ft_close(t_game_state *game)
 {
 	mlx_destroy_image(game->mlx, game->img.img);
 	mlx_destroy_image(game->mlx, game->textures[0].img_xpm.img);

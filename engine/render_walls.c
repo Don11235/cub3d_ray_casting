@@ -6,7 +6,7 @@
 /*   By: mben-cha <mben-cha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/29 21:59:10 by mben-cha          #+#    #+#             */
-/*   Updated: 2026/01/01 18:01:42 by mben-cha         ###   ########.fr       */
+/*   Updated: 2026/01/04 00:40:46 by mohkhald         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,9 @@
 
 void	render_walls(t_game_state *game)
 {
-	int x;
-	t_ray ray;
-	t_draw draw;
+	int		x;
+	t_ray	ray;
+	t_draw	draw;
 
 	x = 0;
 	while (x < 1920)

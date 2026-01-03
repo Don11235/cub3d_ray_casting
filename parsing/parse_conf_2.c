@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   parse_conf_2.c                                     :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: mohkhald <mohkhald@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/01/03 23:11:11 by mohkhald          #+#    #+#             */
+/*   Updated: 2026/01/03 23:24:26 by mohkhald         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../include/cub.h"
 
 static void	ft_handel_line(char *line, t_config *config, int *row)
@@ -26,9 +38,7 @@ static void	ft_handel_line(char *line, t_config *config, int *row)
 		config->map.height = *row;
 	}
 	else if (config->map.grid && line && line[0])
-	{
 		ft_free_error("invalid map line\n", config);
-	}
 }
 
 static void	ft_read_line(int fd, t_config *config, int *row)

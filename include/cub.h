@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   cub.h                                              :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: mohkhald <mohkhald@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/01/04 00:50:51 by mohkhald          #+#    #+#             */
+/*   Updated: 2026/01/04 00:53:37 by mohkhald         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef CUB_H
 # define CUB_H
 
@@ -183,9 +195,9 @@ void			update_frame_time(t_game_state *game);
 void			draw_floor_ceiling(t_game_state *game);
 void			render_walls(t_game_state *game);
 int				redraw(t_game_state *game);
-int				keyPress(int keycode, t_game_state *game);
-int				keyRelease(int keycode, t_game_state *game);
-int				Close(t_game_state *game);
+int				key_press(int keycode, t_game_state *game);
+int				key_release(int keycode, t_game_state *game);
+int				ft_close(t_game_state *game);
 void			run_engine(t_config *config);
 int				is_inside_map(t_game_state *game, int y, int x);
 void			is_valid_texture(t_game_state *game, int index, void *img);

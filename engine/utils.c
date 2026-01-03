@@ -6,14 +6,14 @@
 /*   By: mben-cha <mben-cha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/28 23:10:53 by mben-cha          #+#    #+#             */
-/*   Updated: 2026/01/03 17:06:12 by mben-cha         ###   ########.fr       */
+/*   Updated: 2026/01/04 00:43:30 by mohkhald         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/cub.h"
 #include "../include/minilibx/mlx.h"
 
-double	getTicks(void)
+double	get_ticks(void)
 {
 	struct timeval	tv;
 
@@ -32,7 +32,7 @@ int	is_inside_map(t_game_state *game, int y, int x)
 
 void	is_valid_texture(t_game_state *game, int index, void *img)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	if (!img)
