@@ -13,14 +13,14 @@
 #include "../include/cub.h"
 #include "../include/minilibx/mlx.h"
 
-void run_engine(t_config *config)
+void	run_engine(t_config *config)
 {
-    t_game_state	game;
+	t_game_state game;
 
 	init_game(&game, config);
 	mlx_hook(game.mlx_win, 2, 0, keyPress, &game);
-    mlx_hook(game.mlx_win, 3, 0, keyRelease, &game);
-    mlx_hook(game.mlx_win, 17, 0, Close, &game);
-    mlx_loop_hook(game.mlx, redraw, &game);
-    mlx_loop(game.mlx);
+	mlx_hook(game.mlx_win, 3, 0, keyRelease, &game);
+	mlx_hook(game.mlx_win, 17, 0, Close, &game);
+	mlx_loop_hook(game.mlx, redraw, &game);
+	mlx_loop(game.mlx);
 }

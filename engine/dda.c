@@ -22,7 +22,7 @@ void	dda(t_game_state *game, t_ray *ray)
 			ray->map_x = ray->map_x + ray->step_x;
 			ray->side = 0;
 		}
-		else 
+		else
 		{
 			ray->side_dist_y = ray->side_dist_y + ray->delta_dist_y;
 			ray->map_y = ray->map_y + ray->step_y;

@@ -13,13 +13,13 @@
 #include "../include/cub.h"
 #include "../include/minilibx/mlx.h"
 
-int redraw(t_game_state *game)
+int	redraw(t_game_state *game)
 {
-    update_frame_time(game);
-    camera_move(game);
-    camera_rotate(game);
-    draw_floor_ceiling(game);
-    render_walls(game);
-    mlx_put_image_to_window(game->mlx, game->mlx_win, game->img.img, 0, 0);
-    return (0);
+	update_frame_time(game);
+	camera_move(game);
+	camera_rotate(game);
+	draw_floor_ceiling(game);
+	render_walls(game);
+	mlx_put_image_to_window(game->mlx, game->mlx_win, game->img.img, 0, 0);
+	return (0);
 }

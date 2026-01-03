@@ -3,15 +3,15 @@
 
 # include "./libft/libft.h"
 # include <fcntl.h>
+# include <math.h>
 # include <stdbool.h>
 # include <stdio.h>
 # include <stdlib.h>
-#include <stdnoreturn.h>
+# include <stdnoreturn.h>
 # include <string.h>
-#include <sys/errno.h>
+# include <sys/errno.h>
+# include <sys/time.h>
 # include <unistd.h>
-#include <math.h>
-#include <sys/time.h>
 
 typedef struct s_texture
 {
@@ -60,23 +60,23 @@ typedef enum s_tex_id
 	NO,
 	SO,
 	WE,
-}	t_tex_id;
+}				t_tex_id;
 
-typedef struct	s_data
+typedef struct s_data
 {
-	void	*img;
-	char	*addr;
-	int		bits_per_pixel;
-	int		line_length;
-	int		endian;
-}			t_data;
+	void		*img;
+	char		*addr;
+	int			bits_per_pixel;
+	int			line_length;
+	int			endian;
+}				t_data;
 
-typedef struct	s_tex
+typedef struct s_tex
 {
-	t_data	img_xpm;
-	int		width;
-	int		height;
-}	t_tex;
+	t_data		img_xpm;
+	int			width;
+	int			height;
+}				t_tex;
 
 typedef struct s_game_state
 {
@@ -90,7 +90,7 @@ typedef struct s_game_state
 	void		*mlx;
 	void		*mlx_win;
 	double		old_time;
-	double		time; 
+	double		time;
 	double		frame_time;
 	t_tex		textures[4];
 	int			keycode;
@@ -100,35 +100,35 @@ typedef struct s_game_state
 	int			floor_c;
 	int			ceiling_c;
 	t_config	*config;
-}	t_game_state;
+}				t_game_state;
 
 typedef struct s_ray
 {
-	double	camera_x;
-	double	ray_dir_x;
-	double	ray_dir_y;
-	int		map_x;
-	int		map_y;
-	double	side_dist_x;
-	double	side_dist_y;
-	double	delta_dist_x;
-	double	delta_dist_y;
-	int		step_x;
-	int		step_y;
-	int		hit;
-	int		side;
-	double	perp_wall_dist;
-}	t_ray;
+	double		camera_x;
+	double		ray_dir_x;
+	double		ray_dir_y;
+	int			map_x;
+	int			map_y;
+	double		side_dist_x;
+	double		side_dist_y;
+	double		delta_dist_x;
+	double		delta_dist_y;
+	int			step_x;
+	int			step_y;
+	int			hit;
+	int			side;
+	double		perp_wall_dist;
+}				t_ray;
 
 typedef struct s_draw
 {
-	int		line_height;
-	int		draw_start;
-	int		draw_end;
-	double	step;
-	double	tex_pos;
-	t_tex	texture;
-}	t_draw;
+	int			line_height;
+	int			draw_start;
+	int			draw_end;
+	double		step;
+	double		tex_pos;
+	t_tex		texture;
+}				t_draw;
 
 /*Parse functions*/
 

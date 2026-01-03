@@ -16,7 +16,7 @@ void	camera_rotate(t_game_state *game)
 {
 	double	rot_speed;
 	double	old_dir_x;
-	double	od_px; 
+	double	od_px;
 
 	rot_speed = game->frame_time * 0.5;
 	if (game->keys[123] == 1)
@@ -31,10 +31,14 @@ void	camera_rotate(t_game_state *game)
 	if (game->keys[124] == 1)
 	{
 		old_dir_x = game->dir_x;
-		game->dir_x = old_dir_x * cos(-rot_speed) - game->dir_y * sin(-rot_speed);
-		game->dir_y = old_dir_x * sin(-rot_speed) + game->dir_y * cos(-rot_speed);
+		game->dir_x = old_dir_x * cos(-rot_speed) - game->dir_y
+			* sin(-rot_speed);
+		game->dir_y = old_dir_x * sin(-rot_speed) + game->dir_y
+			* cos(-rot_speed);
 		od_px = game->plane_x;
-		game->plane_x = od_px * cos(-rot_speed) - game->plane_y * sin(-rot_speed);
-		game->plane_y = od_px * sin(-rot_speed) + game->plane_y * cos(-rot_speed);
+		game->plane_x = od_px * cos(-rot_speed) - game->plane_y
+			* sin(-rot_speed);
+		game->plane_y = od_px * sin(-rot_speed) + game->plane_y
+			* cos(-rot_speed);
 	}
 }

@@ -24,8 +24,8 @@ static void	init_window_and_image(t_game_state *game)
 
 static void	load_textures(t_game_state *game)
 {
-	int			i;
-	char		*tmp_arr[4];
+	int		i;
+	char	*tmp_arr[4];
 
 	i = 0;
 	tmp_arr[0] = game->config->textures.east;
@@ -35,14 +35,15 @@ static void	load_textures(t_game_state *game)
 	while (i < 4)
 	{
 		game->textures[i].img_xpm.img = mlx_xpm_file_to_image(game->mlx,
-				tmp_arr[i], &game->textures[i].width,
-				&game->textures[i].height);
+																tmp_arr[i],
+																&game->textures[i].width,
+																&game->textures[i].height);
 		is_valid_texture(game, i, game->textures[i].img_xpm.img);
 		game->textures[i].img_xpm.addr = mlx_get_data_addr(
-				game->textures[i].img_xpm.img,
-				&game->textures[i].img_xpm.bits_per_pixel,
-				&game->textures[i].img_xpm.line_length,
-				&game->textures[i].img_xpm.endian);
+			game->textures[i].img_xpm.img,
+			&game->textures[i].img_xpm.bits_per_pixel,
+			&game->textures[i].img_xpm.line_length,
+			&game->textures[i].img_xpm.endian);
 		i++;
 	}
 }
@@ -80,10 +81,8 @@ static void	init_input_state(t_game_state *game)
 	game->keycode = -1;
 	memset(game->keys, 0, sizeof(game->keys));
 	game->time = getTicks();
-	game->floor_c = game->config->floor.r | game->config->floor.g
-		| game->config->floor.b;
-	game->ceiling_c = game->config->ceil.r | game->config->ceil.g
-		| game->config->ceil.b;
+	game->floor_c = game->config->floor.r | game->config->floor.g | game->config->floor.b;
+	game->ceiling_c = game->config->ceil.r | game->config->ceil.g | game->config->ceil.b;
 }
 
 void	init_game(t_game_state *game, t_config *config)

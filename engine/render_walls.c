@@ -12,19 +12,19 @@
 
 #include "../include/cub.h"
 
-void    render_walls(t_game_state *game)
+void	render_walls(t_game_state *game)
 {
-    int     x;
-    t_ray   ray;
-    t_draw  draw;
+	int x;
+	t_ray ray;
+	t_draw draw;
 
-    x = 0;
-    while (x < 1920)
-    {
-        init_ray(game, &ray, x);
-        dda(game, &ray);
-        compute_wall(&ray, &draw);
-        draw_wall(game, &ray, &draw, x);
-        x++;
-    }
+	x = 0;
+	while (x < 1920)
+	{
+		init_ray(game, &ray, x);
+		dda(game, &ray);
+		compute_wall(&ray, &draw);
+		draw_wall(game, &ray, &draw, x);
+		x++;
+	}
 }

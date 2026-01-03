@@ -12,9 +12,9 @@
 
 #include "../include/cub.h"
 
-void    update_frame_time(t_game_state *game)
+void	update_frame_time(t_game_state *game)
 {
-    game->old_time = game->time;
-    game->time = getTicks();
-    game->frame_time = (game->time - game->old_time) / 100;
+	game->old_time = game->time;
+	game->time = getTicks();
+	game->frame_time = (game->time - game->old_time) / 100;
 }
