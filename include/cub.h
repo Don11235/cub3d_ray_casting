@@ -6,7 +6,7 @@
 /*   By: mohkhald <mohkhald@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/04 00:50:51 by mohkhald          #+#    #+#             */
-/*   Updated: 2026/01/04 00:53:37 by mohkhald         ###   ########.fr       */
+/*   Updated: 2026/01/04 23:18:59 by mohkhald         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -197,7 +197,7 @@ void			render_walls(t_game_state *game);
 int				redraw(t_game_state *game);
 int				key_press(int keycode, t_game_state *game);
 int				key_release(int keycode, t_game_state *game);
-int				close_game(t_game_state *game);
+int				ft_close_game(t_game_state *game);
 void			run_engine(t_config *config);
 int				is_inside_map(t_game_state *game, int y, int x);
 void			is_valid_texture(t_game_state *game, int index, void *img);

@@ -6,7 +6,7 @@
 /*   By: mben-cha <mben-cha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/29 20:00:53 by mben-cha          #+#    #+#             */
-/*   Updated: 2026/01/04 22:02:58 by mohkhald         ###   ########.fr       */
+/*   Updated: 2026/01/04 23:20:28 by mohkhald         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ int	key_press(int keycode, t_game_state *game)
 	if (keycode == 124)
 		game->keys[124] = 1;
 	if (keycode == 53)
-		close_game(game);
+		ft_close_game(game);
 	return (0);
 }
 
@@ -65,7 +65,7 @@ int	key_release(int keycode, t_game_state *game)
 	return (0);
 }
 
-int	ft_close(t_game_state *game)
+int	ft_close_game(t_game_state *game)
 {
 	int	i;
 
