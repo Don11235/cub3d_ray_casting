@@ -15,7 +15,7 @@
 void	camera_rotate(t_game_state *game)
 {
 	double	rot_speed;
-	double	tmp; 
+	double	tmp;
 
 	rot_speed = game->frame_time * 0.5;
 	if (game->keys[123] == 1)

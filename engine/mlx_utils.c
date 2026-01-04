@@ -6,7 +6,7 @@
 /*   By: mben-cha <mben-cha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/29 20:00:53 by mben-cha          #+#    #+#             */
-/*   Updated: 2026/01/04 17:20:30 by mben-cha         ###   ########.fr       */
+/*   Updated: 2026/01/04 22:02:58 by mohkhald         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,15 +65,38 @@ int	key_release(int keycode, t_game_state *game)
 	return (0);
 }
 
-int	close_game(t_game_state *game)
+int	ft_close(t_game_state *game)
 {
-	mlx_destroy_image(game->mlx, game->img.img);
-	mlx_destroy_image(game->mlx, game->textures[0].img_xpm.img);
-	mlx_destroy_image(game->mlx, game->textures[1].img_xpm.img);
-	mlx_destroy_image(game->mlx, game->textures[2].img_xpm.img);
-	mlx_destroy_image(game->mlx, game->textures[3].img_xpm.img);
-	mlx_destroy_window(game->mlx, game->mlx_win);
+	int	i;
+
+	// Destroy all texture images
+	i = 0;
+	while (i < 4)
+	{
+		if (game->textures[i].img_xpm.img)
+			mlx_destroy_image(game->mlx, game->textures[i].img_xpm.img);
+		i++;
+	}
+	// Destroy main image
+	if (game->img.img)
+		mlx_destroy_image(game->mlx, game->img.img);
+	// Destroy window
+	if (game->mlx_win)
+		mlx_destroy_window(game->mlx, game->mlx_win);
+	// Free config data
 	ft_free_config(game->config);
 	exit(0);
 	return (0);
 }
+/* int	close_game(t_game_state *game) */
+/* { */
+/* 	mlx_destroy_image(game->mlx, game->img.img); */
+/* 	mlx_destroy_image(game->mlx, game->textures[0].img_xpm.img); */
+/* 	mlx_destroy_image(game->mlx, game->textures[1].img_xpm.img); */
+/* 	mlx_destroy_image(game->mlx, game->textures[2].img_xpm.img); */
+/* 	mlx_destroy_image(game->mlx, game->textures[3].img_xpm.img); */
+/* 	mlx_destroy_window(game->mlx, game->mlx_win); */
+/* 	ft_free_config(game->config); */
+/* 	exit(0); */
+/* 	return (0); */
+/* } */

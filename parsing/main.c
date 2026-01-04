@@ -6,7 +6,7 @@
 /*   By: mohkhald <mohkhald@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/03 23:10:08 by mohkhald          #+#    #+#             */
-/*   Updated: 2026/01/03 23:23:22 by mohkhald         ###   ########.fr       */
+/*   Updated: 2026/01/04 21:06:29 by mohkhald         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ int	main(int argc, char **argv)
 		ft_free_error("config not complete\n", config);
 	if (!ft_valid_map(config))
 		ft_free_error("map not valide\n", config);
-	//run_engine(config);
+	run_engine(config);
 	ft_free_config(config);
 	return (0);
 }
