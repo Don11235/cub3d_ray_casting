@@ -1,9 +1,12 @@
 #include "../include/cub.h"
-
+void ll()
+{
+	system("leaks -q cub3D");
+}
 int	main(int argc, char **argv)
 {
+	atexit(ll);
 	t_config	*config;
-
 	if (argc != 2)
 	{
 		printf("Error\n Enter: %s <filename>\n", argv[0]);
@@ -25,7 +28,7 @@ int	main(int argc, char **argv)
 		ft_free_error("config not complete\n", config);
 	if (!ft_valid_map(config))
 		ft_free_error("map not valide\n", config);
-	run_engine(config);
+	//run_engine(config);
 	ft_free_config(config);
 	return (0);
 }
