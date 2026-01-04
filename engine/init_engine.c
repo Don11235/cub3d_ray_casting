@@ -24,8 +24,8 @@ static void	init_window_and_image(t_game_state *game)
 
 static void	load_textures(t_game_state *game)
 {
-	int			i;
-	char		*tmp_arr[4];
+	int		i;
+	char	*tmp_arr[4];
 
 	i = 0;
 	tmp_arr[0] = game->config->textures.east;
@@ -38,11 +38,6 @@ static void	load_textures(t_game_state *game)
 				tmp_arr[i], &game->textures[i].width,
 				&game->textures[i].height);
 		is_valid_texture(game, i, game->textures[i].img_xpm.img);
-		game->textures[i].img_xpm.addr = mlx_get_data_addr(
-				game->textures[i].img_xpm.img,
-				&game->textures[i].img_xpm.bits_per_pixel,
-				&game->textures[i].img_xpm.line_length,
-				&game->textures[i].img_xpm.endian);
 		i++;
 	}
 }

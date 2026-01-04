@@ -26,7 +26,7 @@ void	camera_move_forward_backward(t_game_state *game, double moveSpeed)
 		y = (int)(game->pos_y + game->dir_y * moveSpeed);
 		x = (int)game->pos_x;
 		if (is_inside_map(game, y, x) && game->config->map.grid[y][x] == '0')
-			game->pos_y = game->pos_y + game->dir_y * moveSpeed; 
+			game->pos_y = game->pos_y + game->dir_y * moveSpeed;
 	}
 	if (game->keys['S'] == 1)
 	{
@@ -37,7 +37,7 @@ void	camera_move_forward_backward(t_game_state *game, double moveSpeed)
 		y = (int)(game->pos_y - game->dir_y * moveSpeed);
 		x = (int)game->pos_x;
 		if (is_inside_map(game, y, x) && game->config->map.grid[y][x] == '0')
-			game->pos_y = game->pos_y - game->dir_y * moveSpeed; 
+			game->pos_y = game->pos_y - game->dir_y * moveSpeed;
 	}
 }
 
@@ -55,7 +55,7 @@ void	camera_move_left_right(t_game_state *game, double moveSpeed)
 		y = (int)(game->pos_y + game->dir_x * moveSpeed);
 		x = (int)game->pos_x;
 		if (is_inside_map(game, y, x) && game->config->map.grid[y][x] == '0')
-			game->pos_y = game->pos_y + game->dir_x * moveSpeed; 
+			game->pos_y = game->pos_y + game->dir_x * moveSpeed;
 	}
 	if (game->keys['D'] == 1)
 	{

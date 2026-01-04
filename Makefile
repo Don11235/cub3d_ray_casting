@@ -7,7 +7,7 @@ SRCS= ./parsing/main.c ./parsing/parse_map.c ./parsing/parse_conf.c ./parsing/pa
 
 NAME=cub3D
 
-CC = gcc
+CC = cc
 
 CFLAGS = -Wall -Wextra -Werror -I./include -I$(LIBFT_DIR)
 

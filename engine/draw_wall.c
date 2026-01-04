@@ -31,9 +31,9 @@ void	draw_wall_column(t_game_state *game, t_ray *ray, t_draw *draw, int x)
 	{
 		texture_y = (int)draw->tex_pos;
 		draw->tex_pos += draw->step;
-		if (texture_y < 0) 
+		if (texture_y < 0)
 			texture_y = 0;
-		if (texture_y >= draw->texture.height) 
+		if (texture_y >= draw->texture.height)
 			texture_y = draw->texture.height - 1;
 		if (ray->side == 0)
 			wall_x = game->pos_y + ray->perp_wall_dist * ray->ray_dir_y;
