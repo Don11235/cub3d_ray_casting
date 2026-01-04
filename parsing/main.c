@@ -44,7 +44,7 @@ int	main(int argc, char **argv)
 		ft_free_error("config not complete\n", config);
 	if (!ft_valid_map(config))
 		ft_free_error("map not valide\n", config);
-	run_engine(config);
+	//run_engine(config);
 	ft_free_config(config);
 	return (0);
 }

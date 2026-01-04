@@ -6,7 +6,7 @@
 /*   By: mben-cha <mben-cha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/28 23:07:14 by mben-cha          #+#    #+#             */
-/*   Updated: 2026/01/04 00:49:43 by mohkhald         ###   ########.fr       */
+/*   Updated: 2026/01/04 16:52:32 by mben-cha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,11 +74,11 @@ static void	init_input_state(t_game_state *game)
 {
 	game->keycode = -1;
 	memset(game->keys, 0, sizeof(game->keys));
-	game->time = getTicks();
-	game->floor_c = game->config->floor.r 
-		| game->config->floor.g | game->config->floor.b;
-	game->ceiling_c = game->config->ceil.r 
-		| game->config->ceil.g | game->config->ceil.b;
+	game->time = get_ticks();
+	game->floor_c = game->config->floor.r | game->config->floor.g
+		| game->config->floor.b;
+	game->ceiling_c = game->config->ceil.r | game->config->ceil.g
+		| game->config->ceil.b;
 }
 
 void	init_game(t_game_state *game, t_config *config)

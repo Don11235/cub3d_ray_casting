@@ -6,7 +6,7 @@
 /*   By: mben-cha <mben-cha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/29 20:00:53 by mben-cha          #+#    #+#             */
-/*   Updated: 2026/01/04 00:54:16 by mohkhald         ###   ########.fr       */
+/*   Updated: 2026/01/04 17:20:30 by mben-cha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ int	key_press(int keycode, t_game_state *game)
 	if (keycode == 124)
 		game->keys[124] = 1;
 	if (keycode == 53)
-		ft_close(game);
+		close_game(game);
 	return (0);
 }
 
@@ -65,7 +65,7 @@ int	key_release(int keycode, t_game_state *game)
 	return (0);
 }
 
-int	ft_close(t_game_state *game)
+int	close_game(t_game_state *game)
 {
 	mlx_destroy_image(game->mlx, game->img.img);
 	mlx_destroy_image(game->mlx, game->textures[0].img_xpm.img);

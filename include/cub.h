@@ -181,7 +181,7 @@ bool			ft_is_valid_rgb(int r, int g, int b);
 
 /* Graphics / Rendering functions */
 
-double			getTicks(void);
+double			get_ticks(void);
 void			init_game(t_game_state *game, t_config *config);
 void			my_mlx_pixel_put(t_data *data, int x, int y, int color);
 unsigned int	my_mlx_pixel_get(t_data *data, int x, int y);
@@ -197,7 +197,7 @@ void			render_walls(t_game_state *game);
 int				redraw(t_game_state *game);
 int				key_press(int keycode, t_game_state *game);
 int				key_release(int keycode, t_game_state *game);
-int				ft_close(t_game_state *game);
+int				close_game(t_game_state *game);
 void			run_engine(t_config *config);
 int				is_inside_map(t_game_state *game, int y, int x);
 void			is_valid_texture(t_game_state *game, int index, void *img);

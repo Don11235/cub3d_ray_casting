@@ -1,9 +1,9 @@
-SO ./textures_imgs/wall.xpm
-NO ./textures_imgs/eagle.xpm    
+SO ./textures_imgs/wall.xpm   
+NO ./textures_imgs/eagle.xpm
 WE ./textures_imgs/bluestone.xpm 
-EA ./textures_imgs/greystone.xpm
+EA ./textures_imgs/greystone.xpm                           
 
-C 0,0,255
+C 0,0,25
 F 0,0,2
 
 1111111111111
@@ -12,14 +12,6 @@ F 0,0,2
 1000001000001
 1000000100001
 1000001000001
-100000N100001
-1000001000001
+1000000100001
+1000001000N01
 1111111111111
-
-
-
-
-
-
-
-
