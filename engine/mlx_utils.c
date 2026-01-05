@@ -6,7 +6,11 @@
 /*   By: mben-cha <mben-cha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/29 20:00:53 by mben-cha          #+#    #+#             */
+<<<<<<< HEAD
 /*   Updated: 2026/01/05 19:02:21 by mben-cha         ###   ########.fr       */
+=======
+/*   Updated: 2026/01/04 23:20:28 by mohkhald         ###   ########.fr       */
+>>>>>>> fbb4992c5933079132cdbbced4d0c50c1112f02f
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,6 +73,10 @@ int	ft_close_game(t_game_state *game)
 {
 	int	i;
 
+<<<<<<< HEAD
+=======
+	// Destroy all texture images
+>>>>>>> fbb4992c5933079132cdbbced4d0c50c1112f02f
 	i = 0;
 	while (i < 4)
 	{
@@ -76,11 +84,33 @@ int	ft_close_game(t_game_state *game)
 			mlx_destroy_image(game->mlx, game->textures[i].img_xpm.img);
 		i++;
 	}
+<<<<<<< HEAD
 	if (game->img.img)
 		mlx_destroy_image(game->mlx, game->img.img);
 	if (game->mlx_win)
 		mlx_destroy_window(game->mlx, game->mlx_win);
+=======
+	// Destroy main image
+	if (game->img.img)
+		mlx_destroy_image(game->mlx, game->img.img);
+	// Destroy window
+	if (game->mlx_win)
+		mlx_destroy_window(game->mlx, game->mlx_win);
+	// Free config data
+>>>>>>> fbb4992c5933079132cdbbced4d0c50c1112f02f
 	ft_free_config(game->config);
 	exit(0);
 	return (0);
 }
+/* int	close_game(t_game_state *game) */
+/* { */
+/* 	mlx_destroy_image(game->mlx, game->img.img); */
+/* 	mlx_destroy_image(game->mlx, game->textures[0].img_xpm.img); */
+/* 	mlx_destroy_image(game->mlx, game->textures[1].img_xpm.img); */
+/* 	mlx_destroy_image(game->mlx, game->textures[2].img_xpm.img); */
+/* 	mlx_destroy_image(game->mlx, game->textures[3].img_xpm.img); */
+/* 	mlx_destroy_window(game->mlx, game->mlx_win); */
+/* 	ft_free_config(game->config); */
+/* 	exit(0); */
+/* 	return (0); */
+/* } */
