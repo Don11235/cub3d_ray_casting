@@ -6,7 +6,7 @@
 /*   By: mben-cha <mben-cha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/28 16:44:39 by mben-cha          #+#    #+#             */
-/*   Updated: 2026/01/04 16:51:47 by mben-cha         ###   ########.fr       */
+/*   Updated: 2026/01/04 23:19:45 by mohkhald         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ void	run_engine(t_config *config)
 	init_game(&game, config);
 	mlx_hook(game.mlx_win, 2, 0, key_press, &game);
 	mlx_hook(game.mlx_win, 3, 0, key_release, &game);
-	mlx_hook(game.mlx_win, 17, 0, close_game, &game);
+	mlx_hook(game.mlx_win, 17, 0, ft_close_game, &game);
 	mlx_loop_hook(game.mlx, redraw, &game);
 	mlx_loop(game.mlx);
 }

@@ -6,7 +6,7 @@
 /*   By: mben-cha <mben-cha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/29 14:50:26 by mben-cha          #+#    #+#             */
-/*   Updated: 2026/01/04 16:25:27 by mben-cha         ###   ########.fr       */
+/*   Updated: 2026/01/05 01:49:58 by mohkhald         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,9 @@
 void	camera_rotate(t_game_state *game)
 {
 	double	rot_speed;
-	double	tmp; 
+	double	tmp;
 
-	rot_speed = game->frame_time * 0.5;
+	rot_speed = game->frame_time * 2.0;
 	if (game->keys[123] == 1)
 	{
 		tmp = game->dir_x;

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parse_color_2.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mohkhald <mohkhald@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mben-cha <mben-cha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/03 23:10:54 by mohkhald          #+#    #+#             */
-/*   Updated: 2026/01/03 23:10:56 by mohkhald         ###   ########.fr       */
+/*   Updated: 2026/01/05 18:57:24 by mben-cha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,4 +55,5 @@ void	ft_fill_color_conf(t_config *config, char *line)
 		ft_free_error("color not valid!\n", config);
 	}
 	ft_fill_rgb_config(config, rgb, new_line);
+	free(rgb);
 }

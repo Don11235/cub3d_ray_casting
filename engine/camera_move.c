@@ -6,7 +6,7 @@
 /*   By: mben-cha <mben-cha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/29 14:50:00 by mben-cha          #+#    #+#             */
-/*   Updated: 2026/01/03 19:50:52 by mben-cha         ###   ########.fr       */
+/*   Updated: 2026/01/05 01:50:14 by mohkhald         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,7 +74,7 @@ void	camera_move(t_game_state *game)
 {
 	double	move_speed;
 
-	move_speed = game->frame_time * 0.8;
+	move_speed = game->frame_time * 4.0;
 	camera_move_forward_backward(game, move_speed);
 	camera_move_left_right(game, move_speed);
 }
